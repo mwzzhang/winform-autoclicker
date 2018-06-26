@@ -6,6 +6,8 @@ namespace winformautoclicker
 {
 	public class MainWindow : Form
 	{
+		KeyboardHook hook = new KeyboardHook();
+
 		public static void Main()
 		{
 			Application.Run (new MainWindow ());
@@ -13,16 +15,26 @@ namespace winformautoclicker
 
 		public MainWindow()
 		{
+			/*
 			Button b = new Button ();
 			b.Text = "Click Me!";
 			b.Click += new EventHandler (Button_Click);
 			Controls.Add (b);
+			*/
+			// register the event that is fired after the key press.
+			hook.KeyPressed += new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
+
+			// register the control + alt + numpad 5 combination as hot key.
+			hook.RegisterHotKey(winformautoclicker.ModifierKeys.Control | winformautoclicker.ModifierKeys.Alt, Keys.NumPad5);
+
+			// try to register ctrl + alt + numpad 8
+			hook.RegisterHotKey(winformautoclicker.ModifierKeys.Control | winformautoclicker.ModifierKeys.Alt, Keys.NumPad8);
+
 		}
 
-		private void Button_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show ("Button Clicked!");
+		void hook_KeyPressed(object sender, KeyPressedEventArgs e) {
+			MessageBox.Show ("hurr durr" + e.Key);
+
 		}
 	}
 }
-
