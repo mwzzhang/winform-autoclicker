@@ -33,6 +33,7 @@
   <ItemGroup>
     <Compile Include="MainWindow.cs" />
     <Compile Include="KeyboardHook.cs" />
+    <Compile Include="AutoClick.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
