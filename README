@@ -1,0 +1,10 @@
+What began as just a console application has morphed into a (nominally) GUI application with console debug text.
+
+It does one thing and one thing "well": upon activation, the program simulates left mouse button click on the mouse cursor position at ~100 ms per click. However, since it relies on user32.dll, it is not cross-platform. Even under Wine, it will not work on native linux GUI application.
+
+There is currently no way to change the activation trigger (Ctrl-Alt-Numpad5), nor the rate of click, without changing the code.
+
+Since this is the first anything I have written in C# that is not "print arbitrary text on terminal", the code quality is somewhat dismal, and in some part blatantly copied^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H^H"inspired" by other autoclicker examples.
+
+Since this program was written in response(?) to Steam Summer Sale 2018, and it works just fine in that context. As well as the fact that it took way too long, and has caused me to actually miss the part of the game I wanted to actually use it on. There is no near-term plan to make it more user-friendly(?) (e.g. add ability to change interval, change activation binding). If I am ever sick of having to press Ctrl-Alt-Numpad5, then I might actually implement it.
+
